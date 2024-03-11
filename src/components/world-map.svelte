@@ -58,8 +58,8 @@
              in the United States.”
         </p>
 
-        <p> But, the ITA does not mention about other barriers that prevent trade between countries. We call these <b>non-tarrif barriers</b> to trade, or NTBs for short</p>
-
+        <p> But, the ITA does not mention about other barriers that prevent trade between countries. We call these non-tarrif barriers to trade, or NTBs for short. The purpose
+        of this exploration will be to determine <b>what kinds of NTBs affect trade between countries?</b></p>
     </div>
 </div>
 

@@ -5,6 +5,41 @@
     let data = [];
     let columns = [];
 
+    function getCellColor(value) {
+        if (!isNaN(parseFloat(value))) {
+            const absValue = Math.abs(value);
+            if (value >= 0) {
+                // Positive value, use shades of green
+                if (absValue < 0.2) {
+                    return 'very-low-positive';
+                } else if (absValue < 0.4) {
+                    return 'low-positive';
+                } else if (absValue < 0.6) {
+                    return 'medium-positive';
+                } else if (absValue < 0.8) {
+                    return 'high-positive';
+                } else {
+                    return 'very-high-positive';
+                }
+            } else {
+                // Negative value, use shades of red
+                if (absValue < 0.2) {
+                    return 'very-low-negative';
+                } else if (absValue < 0.4) {
+                    return 'low-negative';
+                } else if (absValue < 0.6) {
+                    return 'medium-negative';
+                } else if (absValue < 0.8) {
+                    return 'high-negative';
+                } else {
+                    return 'very-high-negative';
+                }
+            }
+        } else {
+            return value;
+        }
+    }
+
     onMount(async () => {
         const csvUrl = 'https://raw.githubusercontent.com/jww2145/free-trade-agreements/main/data-exploration/correlation_matrix.csv'
 
@@ -44,7 +79,7 @@
       {#each data as row}
         <tr>
           {#each columns as column}
-            <td>{row[column]}</td>
+          <td class={getCellColor(row[column])}>{row[column]}</td>
           {/each}
         </tr>
       {/each}
@@ -53,15 +88,78 @@
 {/if}
 
 <style>
-    table{
-        background-color: #fffdfd;
+    table {
+        background-color: #fff;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        border-collapse: collapse;
+        width: 100%;
     }
-    tbody{
-        text-align: center;
+
+    thead {
+        background-color: #f2f2f2;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+
+    th {
+        font-weight: bold;
     }
 
     tr td:first-child{
         font-weight: bold;
+        background-color: #f2f2f2;
+        border:none;
+        text-align: center;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tbody tr:hover {
+        background-color: #e6e6e6;
+    }
+
+    .very-low-positive {
+        background-color: #e8f5e9;
+    }
+
+    .low-positive {
+        background-color: #c8e6c9;
+    }
+
+    .medium-positive {
+        background-color: #a5d6a7;
+    }
+
+    .high-positive {
+        background-color: #81c784;
+    }
+
+    .very-high-positive {
+        background-color: #66bb6a;
+    }
+
+    .very-low-negative {
+    background-color: #ffcdd2;
+    }
+
+    .low-negative {
+        background-color: #ef9a9a;
+    }
+
+    .medium-negative {
+        background-color: #e57373;
+    }
+
+    .high-negative {
+        background-color: #e53935;
+    }
+
+    .very-high-negative {
+        background-color: #c62828;
     }
 </style>
