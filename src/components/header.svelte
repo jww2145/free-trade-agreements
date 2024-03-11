@@ -13,10 +13,13 @@ h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
     color: #464242;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .author {
     font-size: 1.2rem;
-    color: #706c6c;
+    color: #5d5656;
+    font-family: 'Courier New', Courier, monospace;
+    font-size:11pt;
 }
 </style>
