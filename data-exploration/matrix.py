@@ -11,5 +11,5 @@ df_combined = pd.concat([df, df_toadd], ignore_index=True)
 
 X = df_combined[['l_lnsmfn', 'dxr', 'imf', 'fsharec', 'wlrcac', 'polity']]
 corr_matrix = X.corr()
-
+print(corr_matrix)
 corr_matrix.to_csv('correlation_matrix.csv')
