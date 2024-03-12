@@ -11,7 +11,7 @@
     <div class = 'right'>
         <h2>Independent Variables</h2>
         <ol>
-            <li><b>l_lnsmfn:</b>  (MFN tariff measure) is not a non-tariff barrier, but a baseline, adjusted variable representing the initial tariff level.</li>
+            <li><b>l_lnsmfn:</b>  (MFN tariff measure) is not a non-tariff barrier, but a baseline, adjusted control representing the initial tariff level.</li>
             <li><b>dxr:</b> The percentage change in real exchange rate between tariff observations, which can impact trade flows and potentially 
                 influence tariff rates.</li>
             <li><b>imf:</b> The number of years a country received loans from the International Monetary Fund (IMF), 
@@ -28,11 +28,10 @@
 
 <style>
     .parent{
-        padding: 5%;
+        padding: 2%;
         display:flex;
         justify-content: space-around;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
     }
 
     .left{

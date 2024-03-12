@@ -44,26 +44,37 @@
     <div class = 'intro'>
         <b>Do Free Trade Agreements Really Promote Trade?</b>
 
-        <p>“FTAs are treaties between two or more countries designed to reduce or eliminate certain barriers to trade and investment, 
-            and to facilitate stronger trade and commercial ties between participating countries.” </p>
-        <p>- Australian Department of Foreign Affairs and Trade</p>
-        <p> However, this is not always true. In some cases, FTAs can limit trade between countries even more than before, 
-            especially if the comparative benefits are not the same. To the left are the member countries of the North American Free Trade Agreement,
-        or NAFTA. </p>
+        <div>
+            <div class=paragraph>
+                The countries on the left represent participating countries under NAFTA, which includes the United States of America. According to 
+                the US International Trade Administration: 
 
-        <p> Including to the International Trade Administration: </p>
-        
-        <p>"Reduction or elimination of tariffs on qualified. For example, a country that normally 
-            charges a tariff of 12% of the value of the incoming product will eliminate that tariff for products that originate (as defined in the FTA)
-             in the United States.”
-        </p>
+                <div class = quoteblock>
+                    <p>
+                    “FTAs can help your company to enter and compete more easily in the global marketplace through zero or reduced tariffs and 
+                    other provisions...This makes it easier and cheaper for U.S. companies to export their products and services 
+                    to trading partner markets.”
+                    </p>
+                </div>
 
-        <p> But, the ITA does not mention about other barriers that prevent trade between countries. We call these non-tarrif barriers to trade, or NTBs for short. The purpose
-        of this exploration will be to determine <b>what kinds of NTBs affect trade between countries?</b></p>
+                However, this is not always the case. There are usually many factors that determine trading volume between countries, including
+                non-tariff barriers, which we call NTBs. The purpose of our study is to determine how effective can NTBs be used to predict 
+                trade between countries. 
+            </div>
+
+        </div>
     </div>
 </div>
 
 <style>
+
+    .quoteblock{
+        width:70%;
+        margin: auto;
+        border-left:solid 5px #dad9d9;
+        background-color: #f5f5f5c7;
+        margin-top:3%;
+    }
     .parent{
         display: flex;
         justify-content: space-around;
@@ -80,6 +91,21 @@
         margin-left:-10%;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-size: 12pt;
+    }
+
+    .paragraph{
+        line-height: 150%;
+
+        padding-top:1%;
+    }
+
+    p{
+        padding:3%;
+        text-align: center;
+    }
+
+    h2{
+        text-align: center;
     }
 
 </style>

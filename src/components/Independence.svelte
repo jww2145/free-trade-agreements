@@ -5,6 +5,7 @@
     let data = [];
     let columns = [];
 
+
     function getCellColor(value) {
         if (!isNaN(parseFloat(value))) {
             const absValue = Math.abs(value);
@@ -46,9 +47,11 @@
         // Use the d3.csv() function to fetch the CSV data
         const rawData = await d3.csv(csvUrl);
 
-        console.log(rawData)
         // Extract column names from the first row
         columns = Object.keys(rawData[0]);
+
+
+
 
         // Parse the data into an array of objects with column names as keys
         data = rawData.map(row => {
