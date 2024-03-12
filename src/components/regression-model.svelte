@@ -1,7 +1,7 @@
 <script>
 	// import Component
 	import Katex from "./Katex.svelte"
-	
+	import RegressionResults from "./regression-results.svelte";
 	// math equations
 
 	const model = "\\Delta\\text{MFN Tariff}= \\beta_0 + \\beta_1 \\text{initial MFN} + \\beta_2dxr + \\beta_3 imf + \\beta_4 fsharec + \\beta_5 wlrcac + \\beta_6 polity + \\varepsilon ";
@@ -27,6 +27,7 @@
         3. Financial indicators within a country, similarly, could influence a country's decision to trade
     </p>
 </div>
+<RegressionResults/>
 <style>
     .list{
         padding:1.5%;

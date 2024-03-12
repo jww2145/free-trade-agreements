@@ -2,8 +2,8 @@
 Dep. Variable:   ,dlnsmfn         ,  R-squared:         ,   0.543
 Model:           ,OLS             ,  Adj. R-squared:    ,   0.419
 Method:          ,Least Squares   ,  F-statistic:       ,   5.088
-Date:            ,Mon, 11 Mar 2024,  Prob (F-statistic):,0.00121 
-Time:            ,18:58:16        ,  Log-Likelihood:    , -7.3368
+Date:            ,Tue, 12 Mar 2024,  Prob (F-statistic):,0.00121 
+Time:            ,14:26:40        ,  Log-Likelihood:    , -7.3368
 No. Observations:,    29          ,  AIC:               ,   28.67
 Df Residuals:    ,    22          ,  BIC:               ,   38.24
 Df Model:        ,     6          ,                     ,        

@@ -2,7 +2,7 @@ import pandas as pd
 import statsmodels.api as sm
 
 
-df = pd.read_csv('/Users/joshiebestie/Downloads/trade blocs tariffs.csv')
+df = pd.read_csv('/Users/joshiebestie/Downloads/linear regression project/trade blocs tariffs.csv')
 
 data = df.dropna()
 cluster_var = data['isocode']
