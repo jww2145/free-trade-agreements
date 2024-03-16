@@ -43,11 +43,9 @@ x_fit = data['l_lnsmfn']
 y_fit = data['imf']
 z_fit = data['polity']
 
-x_line = x_fit
-y_line = y_fit
-z_line = model.params[0] + model.params[1] * x_fit + model.params[3] * y_fit + model.params[6] * z_fit
+predicted_dlnsmfn = model.params[0] + model.params[1] * x_fit + model.params[3] * y_fit + model.params[6] * z_fit
 
-fig.add_trace(go.Scatter3d(x=x_line, y=y_line, z=z_line, mode='lines', line=dict(color='red', width=2)))
+fig.add_trace(go.Scatter3d(x=x_fit, y=y_fit, z=z_fit, mode='markers', marker=dict(color=predicted_dlnsmfn, colorscale='Viridis', size=2)))
 
 # Add layout and title
 fig.update_layout(
