@@ -24,7 +24,6 @@ with open('model_summary.csv', 'w') as file:
     file.write(model_summary)
 
 
-
 # Create the 3D scatter plot
 fig = go.Figure(data=[go.Scatter3d(
     x=data['l_lnsmfn'],
@@ -38,6 +37,17 @@ fig = go.Figure(data=[go.Scatter3d(
         opacity=0.8
     )
 )])
+
+# Add the line of best fit
+x_fit = data['l_lnsmfn']
+y_fit = data['imf']
+z_fit = data['polity']
+
+x_line = x_fit
+y_line = y_fit
+z_line = model.params[0] + model.params[1] * x_fit + model.params[3] * y_fit + model.params[6] * z_fit
+
+fig.add_trace(go.Scatter3d(x=x_line, y=y_line, z=z_line, mode='lines', line=dict(color='red', width=2)))
 
 # Add layout and title
 fig.update_layout(
@@ -54,5 +64,6 @@ fig.update_layout(
 # Export the plot as a JSON object
 plot_json = fig.to_json()
 
+# Save the JSON object to a file
 with open('plot_data.json', 'w') as file:
     file.write(plot_json)
