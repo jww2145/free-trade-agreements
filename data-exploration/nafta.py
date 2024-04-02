@@ -30,5 +30,3 @@ for df in dfs:
 
 final_df = pd.concat(cleaned_dataframes, ignore_index=True)
 final_df.to_csv('final_usa_data.csv', index=False)
-
-print('hello! this ran')
