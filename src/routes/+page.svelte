@@ -4,6 +4,7 @@
     import ConfusionMatrix from "../components/confusion-matrix.svelte";
     import RegressionModel from "../components/regression-model.svelte";
     import Plot from "../components/plot.svelte";
+    import Nafta from "../components/nafta.svelte";
 </script>
 
 <Header/>
@@ -11,3 +12,4 @@
 <ConfusionMatrix/>
 <RegressionModel/>
 <Plot/>
+<Nafta/>
