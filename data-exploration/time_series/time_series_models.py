@@ -4,14 +4,20 @@ import statsmodels.api as sm
 import statsmodels.stats.api as sms
 from glmnet import ElasticNet as EN
 from sklearn.linear_model import ElasticNet
+from sklearn.preprocessing import MinMaxScaler
 
 
-
-df = pd.read_csv('/Users/joshiebestie/Coding Projects/free-trade-agreements/data-exploration/merged_data.csv')
+df = pd.read_csv('https://raw.githubusercontent.com/jww2145/free-trade-agreements/main/data-exploration/time_series/time-series-data.csv')
 data = df.dropna()
 
-y = data['Quantity in Million Metric Tons_Import']
-X = data[['Interest_Rates', 'Percent of Democrats in Congress', 'S&P 500 Returns by Year', 'GDP', 'Employment Rate']]
+# Assuming your dataframe is named 'df'
+columns_to_normalize = ['IMPGS', 'INTDSRUSM193N', 'New House Sale', 'S&P Returns', 'UNRATE', 'WM2NS', 'GDPC1', 'T10Y2Y', 'CORESTICKM159SFRBATL', 'DEXCHUS', 'DEXCAUS']
+
+scaler = MinMaxScaler()
+data[columns_to_normalize] = scaler.fit_transform(df[columns_to_normalize])
+
+y = data['IMPGS']
+X = data[['New House Sale', 'T10Y2Y', 'S&P Returns', 'DEXCHUS', 'UNRATE', 'DEXCAUS']]
 X = sm.add_constant(X)
 
 
