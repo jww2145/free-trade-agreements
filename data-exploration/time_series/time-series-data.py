@@ -88,6 +88,39 @@ treasury_df['Year'] = pd.to_datetime(treasury_df['DATE']).dt.year
 treasury_df['T10Y2Y'] = pd.to_numeric(treasury_df['T10Y2Y'], errors='coerce')
 treausry_mean = treasury_df.groupby('Year')['T10Y2Y'].mean()
 
+'''Sticky CPI'''
+
+sticky_cpi = '/Users/joshiebestie/Downloads/linear regression project/time-series-data/sticky_consumer_price_index.csv'
+
+cpi_df = pd.read_csv(sticky_cpi)
+cpi_df['Year'] = pd.to_datetime(cpi_df['DATE']).dt.year
+
+cpi_mean = cpi_df.groupby('Year')['CORESTICKM159SFRBATL'].mean()
+
+'''US RMB Exchange Rate'''
+
+china_exchange = '/Users/joshiebestie/Downloads/linear regression project/time-series-data/chinese_exchange.csv'
+
+china_exchange_df = pd.read_csv(china_exchange)
+china_exchange_df['Year'] = pd.to_datetime(china_exchange_df['DATE']).dt.year
+
+
+china_exchange_df['DEXCHUS'] = pd.to_numeric(china_exchange_df['DEXCHUS'],errors='coerce')
+china_mean = china_exchange_df.groupby('Year')['DEXCHUS'].mean()
+
+
+'''US Canadian Exchange Rate'''
+
+canada_exchange = '/Users/joshiebestie/Downloads/linear regression project/time-series-data/canadian_exchange.csv'
+canada_df = pd.read_csv(canada_exchange)
+
+canada_df['Year'] = pd.to_datetime(canada_df['DATE']).dt.year
+
+canada_df['DEXCAUS'] = pd.to_numeric(canada_df['DEXCAUS'],errors='coerce')
+canada_mean = canada_df.groupby('Year')['DEXCAUS'].mean()
+
+
+
 
 imports_yearly = imports_yearly.to_frame()
 interest_mean = interest_mean.to_frame()
@@ -97,9 +130,12 @@ unemployment_mean = unemployment_mean.to_frame()
 m2_mean = m2_mean.to_frame()
 gdp_mean = gdp_mean.to_frame()
 treausry_mean = treausry_mean.to_frame()
+cpi_mean = cpi_mean.to_frame()
+china_mean = china_mean.to_frame()
+canada_mean = canada_mean.to_frame()
 
 # Concatenate the series and dataframes
-combined_df = pd.concat([imports_yearly, interest_mean, houses_yearly, s_and_p_df, unemployment_mean, m2_mean, gdp_mean, treausry_mean], axis=1)
+combined_df = pd.concat([imports_yearly, interest_mean, houses_yearly, s_and_p_df, unemployment_mean, m2_mean, gdp_mean, treausry_mean,cpi_mean,china_mean,canada_mean], axis=1)
 
 # Drop any rows with NaN values
 combined_df = combined_df.dropna()
