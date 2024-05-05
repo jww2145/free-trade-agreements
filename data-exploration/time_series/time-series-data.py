@@ -104,5 +104,10 @@ combined_df = pd.concat([imports_yearly, interest_mean, houses_yearly, s_and_p_d
 # Drop any rows with NaN values
 combined_df = combined_df.dropna()
 
+combined_df = combined_df.reset_index()
+
+
+print(combined_df)
+
 
 combined_df.to_csv('time-series-data.csv', index=False)
