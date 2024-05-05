@@ -15,7 +15,7 @@ X = data[['l_lnsmfn', 'dxr', 'imf', 'fsharec', 'wlrcac', 'polity']]
 
 X = sm.add_constant(X)
 
-model = sm.OLS(Y, sm.add_constant(X)).fit('pinv','cluster',{'groups': cluster_var})
+model = sm.OLS(Y, sm.add_constant(X)).fit()
 
 print(model.summary())
 

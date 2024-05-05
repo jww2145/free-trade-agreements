@@ -1,12 +1,11 @@
 import pandas as pd
 import os
-import numpy as np
+from usa_indepedent_variables import df
 
 
 os.chdir('/Users/joshiebestie/Downloads/linear regression project/BACI_HS92_V202401/interest folder')
 
 csv_files = [f for f in os.listdir("/Users/joshiebestie/Downloads/linear regression project/BACI_HS92_V202401/interest folder") if f.endswith('.csv')]
-
 
 dfs = []
 
@@ -18,8 +17,8 @@ for csv in csv_files:
     )
 
     filtered_df = df.loc[conditions]
-    
     dfs.append(filtered_df)
+    
 
 
 cleaned_dataframes = []
@@ -29,4 +28,5 @@ for df in dfs:
 
 
 final_df = pd.concat(cleaned_dataframes, ignore_index=True)
-final_df.to_csv('final_usa_data.csv', index=False)
+
+
