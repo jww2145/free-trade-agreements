@@ -34,7 +34,7 @@ fig = go.Figure(data=go.Heatmap(
     z=corr_matrix.mask(~mask).values,
     x=corr_matrix.columns,
     y=corr_matrix.columns,
-    colorscale='Viridis',
+    colorscale='icefire',
     zmin=-1,
     zmax=1
 ))
@@ -53,3 +53,5 @@ fig.update_layout(
 fig.show()
 
 selected_variables = select_low_correlated_vars(corr_matrix)
+
+print(selected_variables)

@@ -3,7 +3,6 @@ import pandas as pd
 import numpy as np
 import statsmodels.api as sm
 from sklearn.preprocessing import StandardScaler
-import statsmodels.formula.api as smf
 from statsmodels.compat import lzip
 import statsmodels.stats.api as sms
 
@@ -12,7 +11,6 @@ import statsmodels.stats.api as sms
 X = data[['l_lnsmfn', 'dxr', 'imf', 'fsharec', 'wlrcac', 'polity']]
 X = sm.add_constant(X)
 y = data['dlnsmfn']
-
 
 '''
 Below is our OLS model
@@ -35,10 +33,13 @@ Now, we start the WLS
 '''
     
 residuals = ols_model.fit().resid
-error_variance = np.var(residuals)
+fitted_values = ols_model.fit().fittedvalues
+fitted_values = sm.add_constant(fitted_values)
+variance_model = sm.OLS(abs(residuals),fitted_values).fit()
+
 
 #I use the inverse of the standard error as my weights
-wi = 1 / error_variance
+wi = 1 / variance_model.fittedvalues**2
 wi = pd.Series(wi, index=X.index)
 
 wls_model = sm.WLS(y,X,wi).fit()
