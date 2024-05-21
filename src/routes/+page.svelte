@@ -1,5 +1,5 @@
 <script>
-    import Header from '../components/Header.svelte';
+    import Header from '../components/header.svelte';
     import WorldMap from '../components/world-map.svelte';
 </script>
 
