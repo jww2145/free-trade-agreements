@@ -1,6 +1,6 @@
 <script>
-    import WorldMap from "../components/world-map.svelte";
-    import Header from "../components/Header.svelte";
+    import WorldMap from "/src/components/world-map.svelte";
+    import Header from "/src/components/Header.svelte";
 </script>
 
 <Header/>
