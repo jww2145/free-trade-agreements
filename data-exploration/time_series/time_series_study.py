@@ -1,6 +1,6 @@
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
+import csv
 
 df = pd.read_csv('https://raw.githubusercontent.com/jww2145/free-trade-agreements/main/data-exploration/time_series/time-series-data.csv')
 
@@ -22,25 +22,8 @@ summary = df.describe().round(2)
 summary = summary.drop(columns=['Year'])
 summary = summary.drop(index = ['count'])
 
-# Create a figure and axes
-fig, ax = plt.subplots(figsize=(10, 6))
-
-# Create a table using the summary DataFrame
-table = ax.table(cellText=summary.values, colLabels=summary.columns, rowLabels=summary.index, loc='center')
-
-# Adjust the table properties
-table.auto_set_font_size(False)
-table.set_fontsize(12)
-table.scale(1.2, 1.2)
-table.auto_set_column_width(col=list(range(len(summary.columns))))
-
-
-# Remove the axes
-ax.axis('off')
-
-# Add a title
-ax.set_title('Statistical Summary')
-
-# Adjust the layout and display the plot
-fig.tight_layout()
-plt.show()
+with open('summary_data.csv', 'w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow([''] + summary.columns.tolist())  # Write column headers
+    for index, row in summary.iterrows():
+        writer.writerow([index] + row.tolist())  # Write row labels and data
